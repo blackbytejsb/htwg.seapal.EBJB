@@ -52,8 +52,8 @@
 				SeaPal is a cooperation that is open for participation. If you have ideas for extensions or want to provide content, please send us a message.
 			</p>
 			<ul class="list-style2">
-				<li class="first"><a href="http://seapal.info/impressum.php">Impressum</a></li>
-				<li><a href="http://seapal.info/legal.php">Legal notice</a></li>
+				<li class="first"><a href="imprint.php">Impressum</a></li>
+				<li><a href="legal.php">Legal notice</a></li>
 			</ul>
 		</div>
 	</div>

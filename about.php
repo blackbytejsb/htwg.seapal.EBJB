@@ -3,17 +3,17 @@
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
-			<h1><a name="top"><img src="./about_files/Icon-Small-50.png" alt="Icon-Small-50" width="50" height="50">About SeaPal </a></h1>
+			<h1><a name="top"><img src="./images/Icon-Small-50.png" alt="Icon-Small-50" width="50" height="50">About SeaPal </a></h1>
 		</div>
 		<div id="menu">
 			<ul>
-<li><a href="index.php">Homepage</a></li><li><a href="userguide.php">User Guide</a></li><li><a href="screenshots.php">Screenshots</a></li><li class="current_page_item"><a href="about.html">About</a></li><li><a href="contact.php">Contact</a></li>
+<li><a href="index.php">Homepage</a></li><li><a href="userguide.php">User Guide</a></li><li><a href="screenshots.php">Screenshots</a></li><li class="current_page_item"><a href="about.php">About</a></li><li><a href="contact.php">Contact</a></li>
 			</ul>
 		</div>
 	</div>
 	<div id="banner" class="container">
 		<div class="image-style">
-			<img src="./about_files/SeaPal-Screen-Horiz01.jpg" width="970" height="320" alt="">
+			<img src="./images/SeaPal-Screen-Horiz01.jpg" width="970" height="320" alt="">
 		</div>
 	</div>
 </div>
@@ -49,8 +49,8 @@
 			<div id="box1">
 				<h2>More Information</h2>
 				<ul class="list-style1">
-					<li class="first"><a href="http://seapal.info/userguide.php">User Guide</a></li>
-					<li><a href="http://seapal.info/contact.php">Contact us</a></li>
+					<li class="first"><a href="userguide.php">User Guide</a></li>
+					<li><a href="contact.php">Contact us</a></li>
 				</ul>
 			</div>
 		</div>

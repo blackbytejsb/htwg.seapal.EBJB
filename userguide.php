@@ -90,10 +90,10 @@
 			<div id="box1">
 				<h2>Quick Access</h2>
 				<ul class="list-style1">
-					<li class="first"><a href="http://seapal.info/userguide.php#Installing_SeaPal">Installing SeaPal</a></li>
-					<li><a href="http://seapal.info/userguide.php#Starting_SeaPal">Starting SeaPal</a></li>
-					<li><a href="http://seapal.info/userguide.php#Map_Selection">Map Selection</a></li>
-					<li><a href="http://seapal.info/images/Legend-IBN-Map.pdf">Legend of IBN Maps</a></li>
+					<li class="first"><a href="userguide.php#Installing_SeaPal">Installing SeaPal</a></li>
+					<li><a href="userguide.php#Starting_SeaPal">Starting SeaPal</a></li>
+					<li><a href="userguide.php#Map_Selection">Map Selection</a></li>
+					<li><a href="images/Legend-IBN-Map.pdf">Legend of IBN Maps</a></li>
 				</ul>
 			</div>
 		</div>

@@ -106,9 +106,9 @@
 					<li class="first">Follow us on our <a href="https://plus.google.com/100825752167882077539/posts">Google Plus Page</a></li>
 					<li>See a <a href="https://plus.google.com/100825752167882077539/videos">video on SeaPal</a></li>
 					<li>SeaPal in <a href="http://itunes.apple.com/us/app/seapal/id561903907?mt=8&ign-mpt=uo%3D4">iTunes</a></li>
-					<li><a href="http://seapal.info/userguide.php">User Guide</a></li>
-					<li><a href="http://seapal.info/about.php">About the project</a></li>
-					<li><a href="http://seapal.info/images/Legend-IBN-Map.pdf">Legend of IBN Maps</a></li>
+					<li><a href="userguide.php">User Guide</a></li>
+					<li><a href="about.php">About the project</a></li>
+					<li><a href="images/Legend-IBN-Map.pdf">Legend of IBN Maps</a></li>
 				</ul>
 			</div>
 		</div>

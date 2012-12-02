@@ -5,17 +5,17 @@
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
-			<h1><a name="top"><img src="./contact_files/Icon-Small-50.png" alt="Icon-Small-50" width="50" height="50">Contact us </a></h1>
+			<h1><a name="top"><img src="./images/Icon-Small-50.png" alt="Icon-Small-50" width="50" height="50">Contact us </a></h1>
 		</div>
 		<div id="menu">
 			<ul>
-<li><a href="index.php">Homepage</a></li><li><a href="userguide.php">User Guide</a></li><li><a href="screenshots.php">Screenshots</a></li><li><a href="about.php">About</a></li><li class="current_page_item"><a href="contact.html">Contact</a></li>
+<li><a href="index.php">Homepage</a></li><li><a href="userguide.php">User Guide</a></li><li><a href="screenshots.php">Screenshots</a></li><li><a href="about.php">About</a></li><li class="current_page_item"><a href="contact.php">Contact</a></li>
 			</ul>
 		</div>
 	</div>
 	<div id="banner" class="container">
 		<div class="image-style">
-			<img src="./contact_files/SeaPal-Screen-Horiz01.jpg" width="970" height="320" alt="">
+			<img src="./images/SeaPal-Screen-Horiz01.jpg" width="970" height="320" alt="">
 		</div>
 	</div>
 </div>
@@ -67,8 +67,8 @@
 			<div id="box1">
 				<h2>Quick Access</h2>
 				<ul class="list-style1">
-					<li class="first"><a href="http://seapal.info/contact.php#ibn">IBN</a></li>
-					<li><a href="http://seapal.info/contact.php#htwg">HTWG Constanz</a></li>
+					<li class="first"><a href="contact.php#ibn">IBN</a></li>
+					<li><a href="contact.php#htwg">HTWG Constanz</a></li>
 				</ul>
 			</div>
 		</div>
