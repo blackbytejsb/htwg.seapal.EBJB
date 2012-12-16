@@ -248,6 +248,13 @@ a:hover {
 	background: url(../images/img05.jpg) no-repeat right 40px;
 }
 
+#content-wide {
+	float: left;
+	width: 1000px;
+	padding: 0px 0px 0px 0px;
+	background: url(../images/img05.jpg) no-repeat right 40px;
+}
+
 .post {
 	overflow: hidden;
 }
