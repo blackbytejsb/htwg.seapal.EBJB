@@ -20,7 +20,6 @@
 	}
 	
 	
-	
 	// Create table 
 	mysql_select_db("seapal", $con); 
 	
@@ -98,9 +97,10 @@
 			ALTER TABLE Waypoint AUTO_INCREMENT=10000;";
 	
 
+	// Split queries into array
 	$queries = explode(";", $sql);
 	
-	// Execute query
+	// Execute queries
 	
 	foreach ($queries as $query) {
 			
@@ -119,11 +119,6 @@
 			}
 	}
 	
-	
-	
-	
-	
-	
-	
+	mysql_close($con);
 ?>
 
