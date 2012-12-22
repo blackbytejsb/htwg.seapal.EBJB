@@ -1,4 +1,17 @@
 <?php
+
+	/*
+	 * After activating MySQL on XAMPP:
+	 * 
+	 * - open "localhost" on your browser
+	 * - select language
+	 * - go to PHPMyAdmin on the left
+	 * - Create database called "seapal"
+	 * - open "dbinstall.php" on your browser
+	 * 
+	 */
+
+
     $con = mysql_connect("localhost","root",""); 
     
     if (!$con)
