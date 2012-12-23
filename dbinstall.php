@@ -56,6 +56,7 @@
 															Triptitle varchar(255), 
 															FromLocation varchar(100), 
 															ToLocation varchar(100), 
+															Crew TEXT,
 															Skipper varchar(30), 
 															StartDate DATETIME, 
 															EndDate DATETIME, 
@@ -89,7 +90,10 @@
 															Grandsail int
 															);
 									
-			CREATE TABLE IF NOT EXISTS WaypointOfTrip	(	WaypointID int,
+			CREATE TABLE IF NOT EXISTS WaypointOfTrip	(	WaypointID varchar(15),
+															TripID int);
+			
+			CREATE TABLE IF NOT EXISTS TripOfBoat		(	Registernr int,
 															TripID int);
 			
 			ALTER TABLE Trip AUTO_INCREMENT=10000;

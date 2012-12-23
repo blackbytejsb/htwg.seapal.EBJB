@@ -12,35 +12,20 @@
 
   	$sql = "INSERT INTO Boat
 			VALUES
-			('$_POST[boatname]',
-			 '$_POST[registernr]',
-			 '$_POST[sailemblem]',
-			 '$_POST[homeport]',
-			 '$_POST[yachtclub]',
-			 '$_POST[owner]',
-			 '$_POST[insurance]',
-			 '$_POST[callsign]',
-			 '$_POST[boattype]',
-			 '$_POST[manufacturer]',
-			 '$_POST[length]',
-			 '$_POST[width]',
-			 '$_POST[draft]',
-			 '$_POST[mastheight]',
-			 '$_POST[repression]',
-			 '$_POST[rigtype]',
-			 '$_POST[manufactureyear]',
-			 '$_POST[motortype]',
-			 '$_POST[tanksize]',
-			 '$_POST[watertanksize]',
-			 '$_POST[effluenttanksize]',
-			 '$_POST[mainsailsize]',
-			 '$_POST[genuasize]',
-			 '$_POST[spisize]'
-			)";
+			( 0,
+			 '$_POST[triptitle]',
+			 '$_POST[from]',
+			 '$_POST[to]',
+			 '$_POST[crew]',
+			 '$_POST[skipper]',
+			 '$_POST[start]',
+			 '$_POST[end]',
+			 '$_POST[duration]',
+			 '$_POST[motor]',
+			 '$_POST[tankfilled]',
+			 '$_POST[notes]',
+			 '$_POST[picture]')";
 ?>
-
-
-
 
 
 <?php include("header.php"); ?>
@@ -74,10 +59,10 @@
 					  	{
 					  		echo 'Error: ' . mysql_error() . ". ";
 					  	}else{
-					  		echo "Boot hinzugefügt.";
+					  		echo "Trip hinzugefügt.";
 					  	}
 						
-						echo " <a href=\"boatinfo.php\">Weiter</a>";
+						echo " <a href=\"tripinfo.php\">Weiter</a>";
 					?>
 				</div>
 			</div>

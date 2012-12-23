@@ -26,41 +26,41 @@
 			<div class="post">
 				<h2 class="title"><a name="welcome">Trip Info</a></h2>
 				<div class="entry">
-					<form name="form1" method="post" action="">
+					<form name="form1" method="post" action="inserttrip.php">
 					  <label for="boatname"></label>
 					  <table width="100%" border="0" cellspacing="2" cellpadding="2">
 				        <tr>
 				          <td width="16%">Trip Title</td>
-				          <td colspan="7"><input name="boatname" type="text" id="boatname" size="50"></td>
+				          <td colspan="7"><input name="triptitle" type="text" id="triptitle" size="50"></td>
 			            </tr>
 				        <tr>
 				          <td width="16%">Von</td>
-				          <td width="18%"><input type="text" name="boatname2" id="boatname2"></td>
+				          <td width="18%"><input type="text" name="from" id="from"></td>
 				          <td width="5%">Crew</td>
 				          <td width="25%" rowspan="3"><label for="textarea"></label>
-			              <textarea name="textarea" cols="18" rows="4" id="textarea"></textarea></td>
+			              <textarea name="crew" cols="18" rows="4" id="crew"></textarea></td>
 				          <td width="16%">Start</td>
-				          <td width="20%"><input name="boatname5" type="text" id="boatname5"></td>
+				          <td width="20%"><input name="start" type="text" id="start"></td>
 				          <td width="20%">&nbsp;</td>
 				          <td width="20%">&nbsp;</td>
 			            </tr>
 				        <tr>
 				          <td width="16%">Nach</td>
-				          <td width="18%"><input type="text" name="boatname3" id="boatname3"></td>
+				          <td width="18%"><input type="text" name="to" id="to"></td>
 				          <td width="5%">&nbsp;</td>
 				          <td width="16%">Ende</td>
-				          <td width="20%"><input type="text" name="boatname6" id="boatname6"></td>
+				          <td width="20%"><input type="text" name="end" id="end"></td>
 				          <td width="20%">Motor(min)</td>
-				          <td width="20%"><input name="boatname19" type="text" id="boatname19" size="10"></td>
+				          <td width="20%"><input name="motor" type="text" id="motor" size="10"></td>
 			            </tr>
 				        <tr>
 				          <td width="16%">Skipper</td>
-				          <td width="18%"><input type="text" name="boatname4" id="boatname4"></td>
+				          <td width="18%"><input type="text" name="skipper" id="skipper"></td>
 				          <td width="5%">&nbsp;</td>
 				          <td width="16%">Dauer</td>
-				          <td width="20%"><input type="text" name="boatname7" id="boatname7"></td>
+				          <td width="20%"><input type="text" name="duration" id="duration"></td>
 				          <td width="20%">Tank gefüllt</td>
-				          <td width="20%"><input type="checkbox" name="checkbox" id="checkbox">
+				          <td width="20%"><input type="checkbox" name="tankfilled" id="tankfilled">
 			              <label for="checkbox"></label></td>
 			            </tr>
 			          </table>
@@ -73,7 +73,7 @@
 					      <td width="30%">Photos</td>
 				        </tr>
 					    <tr>
-					      <td width="30%"><textarea name="textarea2" cols="38" rows="12" id="textarea2"></textarea></td>
+					      <td width="30%"><textarea name="notes" cols="38" rows="12" id="notes"></textarea></td>
 					      <td width="30%" align="center"><img name="picture" src="" width="180" height="200" alt="No Picture"></td>
 				        </tr>
 				      </table>
