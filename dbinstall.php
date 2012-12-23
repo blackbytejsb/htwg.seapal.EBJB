@@ -7,7 +7,7 @@
 	 * - select language
 	 * - go to PHPMyAdmin on the left
 	 * - Create database called "seapal"
-	 * - open "dbinstall.php" on your browser
+	 * - browse to "dbinstall.php" on your browser
 	 * 
 	 */
 
@@ -30,11 +30,10 @@
 															Homeport varchar(30), 
 															Yachtclub varchar(20), 
 															Owner varchar(255), 
-															Insurance 
-															varchar(100),
+															Insurance varchar(100),
 															Callsign varchar(50),
 															Type varchar(15),
-															Constructor varchar(50),
+															Manufacturer varchar(50),
 															Length double,
 															Width double,
 															Draft double,
@@ -104,15 +103,11 @@
 	
 	foreach ($queries as $query) {
 			
-			if (strlen($query) == 0) {
-				continue;
-			}
-			
 			$result = mysql_query($query,$con);
 			
 			if ($result == true) {
 				echo "Table installed!<br />";
-			} else {
+			} else if (strlen($query) != 0){
 		
 				echo "Install Table Failed! Error: ".mysql_error()."<br />";	
 		
