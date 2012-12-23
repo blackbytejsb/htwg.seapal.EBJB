@@ -48,17 +48,17 @@
 				        <tr>
 				          <td width="17%">Segelzeichen</td>
 				          <td width="17%"><input type="text" name="sailemblem" id="sailemblem"></td>
-				          <td width="17%">Länge</td>
+				          <td width="17%">Länge (m)</td>
 				          <td width="17%"><input type="text" name="length" id="length"></td>
-				          <td width="17%">Tankgröße</td>
+				          <td width="17%">Tankgröße (l)</td>
 				          <td width="17%"><input type="text" name="tanksize" id="tanksize"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Heimathafen</td>
 				          <td width="17%"><input type="text" name="homeport" id="homeport"></td>
-				          <td width="17%">Breite</td>
+				          <td width="17%">Breite (m)</td>
 				          <td width="17%"><input type="text" name="width" id="width"></td>
-				          <td width="17%">Wassertankgröße</td>
+				          <td width="17%">Wassertankgröße (l)</td>
 				          <td width="17%"><input type="text" name="watertanksize" id="watertanksize"></td>
 			            </tr>
 				        <tr>
@@ -82,7 +82,7 @@
 				          <td width="17%"><input type="text" name="insurance" id="insurance"></td>
 				          <td width="17%">Verdrängung</td>
 				          <td width="17%"><input type="text" name="repression" id="repression"></td>
-				          <td width="17%">Genaugröße</td>
+				          <td width="17%">Genaugröße (m)</td>
 				          <td width="17%"><input type="text" name="genuasize" id="genuasize"></td>
 			            </tr>
 				        <tr>
@@ -90,7 +90,7 @@
 				          <td width="17%"><input type="text" name="callsign" id="callsign"></td>
 				          <td width="17%">Rig-Art</td>
 				          <td width="17%"><input type="text" name="rigtype" id="rigtype"></td>
-				          <td width="17%">Spigröße</td>
+				          <td width="17%">Spigröße (m)</td>
 				          <td width="17%"><input type="text" name="spisize" id="spisize"></td>
 			            </tr>
 			          </table>
@@ -101,7 +101,7 @@
 					    <td width="28%">Bootsname</td>
 					    <td width="12%">Bootstyp</td>
 					    <td width="28%">Konstrukteur</td>
-					    <td width="12%">Länge</td>
+					    <td width="12%">Länge (m)</td>
 					    <td width="20%">Inhaber</td>
 				      </tr>
 				      <?php
