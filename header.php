@@ -196,7 +196,9 @@ a.fb_button_small_rtl:active{background-position:right -458px}
 .fbpluginrecommendationsbarleft{left:10px}
 /* @noflip */
 .fbpluginrecommendationsbarright{right:10px}
-</style></head>
+</style>
+
+</head>
 <body data-twttr-rendered="true">
 	
 
