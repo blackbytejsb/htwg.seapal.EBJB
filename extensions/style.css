@@ -506,3 +506,5 @@ a:hover {
 #box1 {
 	margin-bottom: 30px;
 }
+
+#map_canvas { height: 100%; width:100% }

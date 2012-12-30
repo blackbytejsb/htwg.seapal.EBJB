@@ -1,4 +1,69 @@
 
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWYUiW056ymDJsYLP_Qm4sf1zuMJ5fsc&sensor=false">
+    </script>
+    <script type="text/javascript">
+      var map
+      var marker
+      function initialize() {
+        var mapTypeIds = ["roadmap", "satellite", "OSM"];
+        var mapOptions = {
+          center: new google.maps.LatLng(47.66, 9.16),
+          zoom: 14,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          mapTypeControlOptions: {
+                    mapTypeIds: mapTypeIds
+                }
+        };
+         map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+                        
+         map.mapTypes.set("OSM", new google.maps.ImageMapType({
+                getTileUrl: function(coord, zoom) {
+                    return "http://tile.openstreetmap.org/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
+                },
+                tileSize: new google.maps.Size(256, 256),
+                name: "OpenStreetMap",
+                maxZoom: 18
+            }));
+         map.overlayMapTypes.push(new google.maps.ImageMapType({getTileUrl: function(coord, zoom) {
+                    return "http://tiles.openseamap.org/seamark/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
+                },
+                tileSize: new google.maps.Size(256, 256),
+                name: "OpenSeaMap",
+                maxZoom: 18 }));
+            
+        google.maps.event.addListener(map, 'center_changed', function() {
+        	document.getElementById("lat").firstChild.nodeValue=map.getCenter().lat();
+        	document.getElementById("long").firstChild.nodeValue=map.getCenter().lng();
+        })
+        
+        google.maps.event.addListener(map, 'click', function(event) {
+             var markerOptions= {
+	             position: event.latLng,
+                 map: map,
+                 draggable:true
+             }
+        	 marker = new google.maps.Marker(markerOptions);
+        	 
+        	 google.maps.event.addListener(marker, 'click', function() {alert("Marker was clicked")})
+        })
+        
+          var routePoints = [
+            new google.maps.LatLng(47.66, 9.16),
+            new google.maps.LatLng(47.67, 9.17),
+            new google.maps.LatLng(47.69, 9.14),
+          ];
+          var route = new google.maps.Polyline({
+            path: routePoints,
+            strokeColor: "#FF0000",
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+          });
+
+        route.setMap(map);
+      }
+    </script>
 
 
 <?php include("header.php"); ?>
@@ -31,34 +96,26 @@
 					  <table width="100%" border="0" cellspacing="2" cellpadding="2">
 				        <tr>
 				          <td width="10%">Name</td>
-				          <td colspan="7"><input name="boatname" type="text" id="boatname" size="50"></td>
+				          <td colspan="7"><input name="name" type="text" id="name" size="50"></td>
 			            </tr>
 				        <tr>
 				          <td width="10%">Position</td>
-				          <td width="18%"><input name="boatname2" type="text" id="boatname2" size="6">
-				            °
-			                <input name="boatname4" type="text" id="boatname4" size="4">
-			                '
-			                <input name="boatname7" type="text" id="boatname7" size="4">
+				          <td width="18%"><input name="latitude" type="text" id="latitude" size="6">
 			                &quot;N</td>
 				          <td colspan="2"><label for="textarea">
-				            <input name="boatname8" type="text" id="boatname8" size="6">
-				            °
-  <input name="boatname8" type="text" id="boatname9" size="4">
-				            '
-  <input name="boatname8" type="text" id="boatname10" size="4">
+				            <input name="longitude" type="text" id="longitude" size="6">
   &quot;E</label></td>
 				          <td width="5%">COG</td>
-				          <td width="12%"><input name="boatname5" type="text" id="boatname5" value="0.0°" size="12"></td>
+				          <td width="12%"><input name="cog" type="text" id="cog" value="0.0°" size="12"></td>
 				          <td width="5%">SOG</td>
-				          <td width="27%"><input name="boatname10" type="text" id="boatname12" value="0.0 kn" size="12"> 
+				          <td width="27%"><input name="sog" type="text" id="sog" value="0.0 kn" size="12"> 
 				            at xx.xx.xx</td>
 			            </tr>
 				        <tr>
 				          <td width="10%">BTM</td>
-				          <td width="18%"><input name="boatname3" type="text" id="boatname3" value="0°" size="10"></td>
+				          <td width="18%"><input name="btm" type="text" id="btm" value="0°" size="10"></td>
 				          <td width="4%">DTM</td>
-				          <td width="19%"><input name="boatname9" type="text" id="boatname11" value="0.0000 nm" size="12"></td>
+				          <td width="19%"><input name="dtm" type="text" id="dtm" value="0.0000 nm" size="12"></td>
 				          <td colspan="4">Fahrt nach 
 				            <label for="select"></label>
 				            <select name="select" id="select">
@@ -69,13 +126,13 @@
 					  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 					    <tr>
 					      <td align="center">Manöver
-					          <select name="select2" id="select2">
+					          <select name="maveuver" id="maveuver">
 			              </select></td>
 					      <td align="center">Vorsegel
-					        <select name="select3" id="select3">
+					        <select name="foresail" id="foresail">
 			              </select></td>
 					      <td align="center">Großsegel
-					        <select name="select4" id="select4">
+					        <select name="grandsail" id="grandsail">
 			              </select></td>
 				        </tr>
 				      </table>
@@ -83,11 +140,11 @@
 					  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 					    <tr>
 					      <td width="30%">Notes</td>
-					      <td width="40%" rowspan="2">&nbsp;</td>
+					      <td width="40%" rowspan="2"><div id="map_canvas"></div></td>
 					      <td width="30%">Photos</td>
 				        </tr>
 					    <tr>
-					      <td width="30%"><textarea name="textarea2" cols="38" rows="12" id="textarea2"></textarea></td>
+					      <td width="30%"><textarea name="notes" cols="38" rows="12" id="notes"></textarea></td>
 					      <td width="30%" align="center"><img name="picture" src="" width="180" height="200" alt="No Picture"></td>
 				        </tr>
 				      </table>

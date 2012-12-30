@@ -73,21 +73,17 @@
 			CREATE TABLE IF NOT EXISTS Waypoint 		(	id int NOT NULL AUTO_INCREMENT,
 															PRIMARY KEY(id),
 															Name varchar(255), 
-															PositionEdegree int,
-															PositionEmin int,
-															PositionEsek int,
-															PositionNdegree int,
-															PositionNmin int,
-															PositionNsek int,
+															latitude double,
+															longitude double,
 															BTM double, 
 															DTM double, 
 															COG double, 
 															SOG double, 
 															Date DATETIME, 
 															Tripto int,
-															Maneuver int,
-															Mainsail int,
-															Grandsail int
+															Maneuver varchar(255),
+															Foresail varchar(255),
+															Grandsail varchar(255)
 															);
 									
 			CREATE TABLE IF NOT EXISTS WaypointOfTrip	(	WaypointID varchar(15),
