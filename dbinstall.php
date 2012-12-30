@@ -83,7 +83,9 @@
 															Tripto int,
 															Maneuver varchar(255),
 															Foresail varchar(255),
-															Grandsail varchar(255)
+															Grandsail varchar(255),
+															Notes varchar(255),
+															Picture blob
 															);
 									
 			CREATE TABLE IF NOT EXISTS WaypointOfTrip	(	WaypointID varchar(15),
