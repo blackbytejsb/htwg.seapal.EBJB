@@ -1,5 +1,6 @@
  var map
       var marker
+      var infowindow = new google.maps.InfoWindow();
       function initialize() {
         var mapTypeIds = ["roadmap", "satellite", "OSM"];
         var mapOptions = {
@@ -29,8 +30,8 @@
                 maxZoom: 18 }));
             
         google.maps.event.addListener(map, 'center_changed', function() {
-        	document.getElementById("latitude").firstChild.nodeValue=map.getCenter().lat();
-        	document.getElementById("longitude").firstChild.nodeValue=map.getCenter().lng();
+        	document.getElementById("lat").firstChild.nodeValue=map.getCenter().lat();
+        	document.getElementById("long").firstChild.nodeValue=map.getCenter().lng();
         })
         
         google.maps.event.addListener(map, 'click', function(event) {
@@ -41,9 +42,14 @@
              }
         	 marker = new google.maps.Marker(markerOptions);
         	 
-        	 google.maps.event.addListener(marker, 'click', function() {alert("Marker was clicked")})
+        	 google.maps.event.addListener(marker, 'click', function() {
+        	 		infowindow.setContent("contentString");
+				    infowindow.open(map, marker);
+				
+			})
         })
         
+        /*
           var routePoints = [
             new google.maps.LatLng(47.66, 9.16),
             new google.maps.LatLng(47.67, 9.17),
@@ -57,4 +63,5 @@
           });
 
         route.setMap(map);
+        */
       }
