@@ -71,15 +71,15 @@
 				        </tr>
 				      </table>
 					  <br>
-					  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					  <table width="100%" border="0" cellspacing="0" cellpadding="10">
 					    <tr>
-					      <td width="30%">Notes</td>
-					      <td width="40%" rowspan="2"><div id="map_canvas"></div></td>
-					      <td width="30%">Photos</td>
+					      <td width="25%">Notes</td>
+					      <td width="55%" rowspan="2"><div id="map_canvas" style="width:100%; height:400px"></div></td>
+					      <td width="20%"> Photos</td>
 				        </tr>
 					    <tr>
-					      <td width="30%"><textarea name="notes" cols="38" rows="12" id="notes"></textarea></td>
-					      <td width="30%" align="center"><img name="picture" src="" width="180" height="200" alt="No Picture"></td>
+					      <td width="25%" valign="top"><textarea name="notes" cols="30" rows="12" id="notes"></textarea></td>
+					      <td width="20%" align="center" valign="top"><img name="picture" src="" width="180" height="200" alt="No Picture"></td>
 				        </tr>
 				      </table>
 					  <br>
