@@ -1,25 +1,24 @@
- var map
-      var marker
-      var infowindow = new google.maps.InfoWindow();
-      var infowindowContent = '<div id="content">'+
-    							'<div id="siteNotice">'+
-    							'</div>'+
-    							'<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-    							'<div id="bodyContent">'+
-    								'<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-    								'sandstone rock formation in the southern part of the '+
-    								'Northern Territory, central Australia. It lies 335 km (208 mi) '+
-    								'south west of the nearest large town, Alice Springs; 450 km '+
-    								'(280 mi) by road. Kata Tjuta and Uluru are the two major '+
-    								'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-    								'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-    								'Aboriginal people of the area. It has many springs, waterholes, '+
-    								'rock caves and ancient paintings. Uluru is listed as a World '+
-    								'Heritage Site.</p>'+
-    								'<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-    							'http://en.wikipedia.org/w/index.php?title=Uluru</a> (last visited June 22, 2009).</p>'+
-   					 			'</div>'+
-    						'</div>';
+	
+	
+	var map;
+    
+    var curmarker;
+	var markerFrom;
+    var markerTarget;
+    
+    var markers = [];
+      
+    var contentString = '<div id="content"><ul>'+
+    '<li><input type="submit" name="next" id="next" value="Markierung setzen" onclick="javascript:thefunction(curmarker)"></li>'+
+    '<li><input type="submit" name="next" id="route" value="Route setzen" onclick="javascript:thefunction(curmarker)"></li>'+
+    '<li><input type="submit" name="next" id="distance" value="Abstand von hier" onclick="javascript:thefunction(curmarker)"></li>'+
+    '<li><input type="submit" name="next" id="target" value="Zum Ziel machen" onclick="javascript:thefunction(curmarker)"></li>'+ 
+    '<li><input type="submit" name="next" id="delete" value="Löschen" onclick="javascript:deleteMarker(curmarker,this)">'+
+    '</ul></div>';
+    						
+    var infowindow = new google.maps.InfoWindow({
+    	content: contentString
+	});
       
       function initialize() {
         var mapTypeIds = ["roadmap", "satellite", "OSM"];
@@ -61,13 +60,38 @@
                  draggable:true
              }
         	 marker = new google.maps.Marker(markerOptions);
-        	 
+        	 markers.push(marker);
+
         	 google.maps.event.addListener(marker, 'click', function() {
-        	 		infowindow.setContent("contentString");
+        	 		curmarker = marker;
 				    infowindow.open(map, marker);
 				
 			})
         })
+        
+        function routeFrom(marker)
+        {
+        	if (markerTarget != null) {
+        		// distanz von hier
+        	};
+        }
+        
+        function markasTarget(marker)
+        {
+        	
+        }
+        
+        function distance(fromMarker,toMarker)
+        {
+        	// Route anzeigen und distanz ausrechnen + anzeigen
+        }
+        
+        function deleteMarker(marker, sender)
+        {
+        	marker.setMap(null);
+        	delete markers[markers.indexOf(marker)];
+        }
+       
         
         /*
           var routePoints = [

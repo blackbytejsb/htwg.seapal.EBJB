@@ -32,9 +32,7 @@
 <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWYUiW056ymDJsYLP_Qm4sf1zuMJ5fsc&sensor=false">
    </script>
-<script type="text/javascript"
-      src="maps.js">
-   </script>
+<script type="text/javascript" src="maps.js"></script>
 
 <style type="text/css"></style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
 .fb_invisible{display:none}
