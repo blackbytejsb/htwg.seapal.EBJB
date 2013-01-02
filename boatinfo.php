@@ -63,41 +63,41 @@
 				          <td width="17%">Segelzeichen</td>
 				          <td width="17%"><input type="text" name="sailemblem" id="sailemblem" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Länge (m)</td>
-				          <td width="17%"><input type="text" name="length" id="length"></td>
+				          <td width="17%"><input type="text" name="length" id="length" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Tankgröße (l)</td>
-				          <td width="17%"><input type="text" name="tanksize" id="tanksize"></td>
+				          <td width="17%"><input type="text" name="tanksize" id="tanksize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Heimathafen</td>
 				          <td width="17%"><input type="text" name="homeport" id="homeport" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Breite (m)</td>
-				          <td width="17%"><input type="text" name="width" id="width"></td>
+				          <td width="17%"><input type="text" name="width" id="width" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Wassertankgröße (l)</td>
-				          <td width="17%"><input type="text" name="watertanksize" id="watertanksize"></td>
+				          <td width="17%"><input type="text" name="watertanksize" id="watertanksize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Yachtclub</td>
 				          <td width="17%"><input type="text" name="yachtclub" id="yachtclub" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Tiefgang</td>
-				          <td width="17%"><input type="text" name="draft" id="draft"></td>
-				          <td width="17%">Abwassertankgröße</td>
-				          <td width="17%"><input type="text" name="effluenttanksize" id="effluenttanksize"></td>
+				          <td width="17%"><input type="text" name="draft" id="draft" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%">Abwassertankgröße (l)</td>
+				          <td width="17%"><input type="text" name="effluenttanksize" id="effluenttanksize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Eigner</td>
 				          <td width="17%"><input type="text" name="owner" id="owner" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
-				          <td width="17%">Masthöhe</td>
-				          <td width="17%"><input type="text" name="mastheight" id="mastheight"></td>
-				          <td width="17%">Großsegelgröße</td>
-				          <td width="17%"><input type="text" name="mainsailsize" id="mainsailsize"></td>
+				          <td width="17%">Masthöhe (m)</td>
+				          <td width="17%"><input type="text" name="mastheight" id="mastheight" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%">Großsegelgröße (m)</td>
+				          <td width="17%"><input type="text" name="mainsailsize" id="mainsailsize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Versicherung</td>
 				          <td width="17%"><input type="text" name="insurance" id="insurance" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Verdrängung</td>
-				          <td width="17%"><input type="text" name="repression" id="repression"></td>
+				          <td width="17%"><input type="text" name="repression" id="repression" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Genaugröße (m)</td>
-				          <td width="17%"><input type="text" name="genuasize" id="genuasize"></td>
+				          <td width="17%"><input type="text" name="genuasize" id="genuasize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Rufzeichen</td>
@@ -105,7 +105,7 @@
 				          <td width="17%">Rig-Art</td>
 				          <td width="17%"><input type="text" name="rigtype" id="rigtype" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Spigröße (m)</td>
-				          <td width="17%"><input type="text" name="spisize" id="spisize"></td>
+				          <td width="17%"><input type="text" name="spisize" id="spisize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 			          </table>
 				  

@@ -42,14 +42,11 @@
 		function isStateOk(inputField, helpId) {        // See if the input value contains any text
 			return editNodeText(/^A[LKSZRAEP]|C[AOT]|D[EC]|F[LM]|G[AU]|HI|I[ADLN]|K[SY]|LA| M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[ARW]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]$/, inputField.value, helpId, "Enter a State Code in Uppercase (Ex.NY, PA, CA)");
 		}
-		function isPhoneOk(inputField, helpId) {        // See if the input value contains any text
-			return editNodeText(/^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$/, inputField.value, helpId, "Enter a Phone Number (Ex.412-828-3000)");
-		}
 		function isYearOk(inputField, helpId) {        // See if the input value contains any text
 			return editNodeText(/^[0-9]{4}$/, inputField.value, helpId, "YYYY");
 		}
 		function isFloatOk(inputField, helpId) {        // See if the input value contains any text
-			return editNodeText(/^([0-9.]+l)?([0-9.])$/, inputField.value, helpId, "X");
+			return editNodeText(/^[0-9]+\.[0-9]$|^[0-9]$/, inputField.value, helpId, "X");
 		}
 		function isEmailOk(inputField, helpId) {        // See if the input value contains any text
 			return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Enter an Email (Ex. derekbanas@newthinktank.com)");
