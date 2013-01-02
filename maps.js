@@ -30,6 +30,7 @@
                     mapTypeIds: mapTypeIds
                 }
         };
+        
          map = new google.maps.Map(document.getElementById("map_canvas"),
             mapOptions);
                         
@@ -69,21 +70,25 @@
 			})
         })
         
+        
+        
+        function distance(fromMarker,toMarker)
+        {
+        	// Route anzeigen und distanz ausrechnen + anzeigen
+        }
+        
+        
         function routeFrom(marker)
         {
         	if (markerTarget != null) {
-        		// distanz von hier
+        		// distanz von hier zum target berechnen und anzeigen
+        		distance(marker,markerTarget);
         	};
         }
         
         function markasTarget(marker)
         {
         	
-        }
-        
-        function distance(fromMarker,toMarker)
-        {
-        	// Route anzeigen und distanz ausrechnen + anzeigen
         }
         
         function deleteMarker(marker, sender)
