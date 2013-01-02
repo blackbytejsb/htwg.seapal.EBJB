@@ -10,6 +10,7 @@
 <link rel="icon" type="image/png" href="http://seapal.info/images/Icon-32.png">
 <link href="./extensions/css" rel="stylesheet" type="text/css">
 <link href="./extensions/style.css" rel="stylesheet" type="text/css" media="screen">
+<script type="text/javascript" src="validation.js"></script>
 
 <!-- Google Analytics code -->
 <script src="./extensions/cb=gapi.loaded_0" async=""></script><script id="twitter-wjs" src="./extensions/widgets.js"></script><script type="text/javascript" async="" src="./extensions/plusone.js" gapi_processed="true"></script><script id="facebook-jssdk" src="./extensions/all.js"></script><script type="text/javascript" async="" src="./extensions/ga.js"></script><script type="text/javascript">
