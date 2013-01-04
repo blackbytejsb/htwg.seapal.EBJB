@@ -69,10 +69,12 @@
             
             
         // Listener to show current center of the map    
-        
+      	document.getElementById("mapcenter").innerHTML=convertDecimalToMin(map.getCenter());
+
         google.maps.event.addListener(map, 'center_changed', function() {
-        	document.getElementById("lat").firstChild.nodeValue=map.getCenter().lat();
-        	document.getElementById("long").firstChild.nodeValue=map.getCenter().lng();
+			  
+			  document.getElementById("mapcenter").innerHTML=convertDecimalToMin(map.getCenter());
+
         })
         
         
@@ -184,7 +186,7 @@
 			var lat = myLatLng.lat();
 			var lng = myLatLng.lng();
 
-			boxText.innerHTML = 'Lat <span id="lat1">'+lat+'</span><br /> Long <span id="long1">'+lng+'</span>';
+			boxText.innerHTML = '<span id="position">'+convertDecimalToMin(myLatLng)+'</span>';
 			
         	showInfoBox(marker);
 
@@ -253,13 +255,10 @@
 				google.maps.event.addListener(marker, 'drag', function() {
         		
         			var myLatLng = marker.getPosition();
-					var lat = myLatLng.lat();
-					var lng = myLatLng.lng();
 					
 	        		if(marker.get("isTarget"))
 	        		{
-			        	document.getElementById("lat1").firstChild.nodeValue=lat;
-			        	document.getElementById("long1").firstChild.nodeValue=lng;
+			        	document.getElementById("position").innerHTML=convertDecimalToMin(myLatLng);
 	        		}
 	        		
 					
@@ -281,3 +280,59 @@
             }
         }
       
+
+
+		// Decimal to DTM converter
+		
+		function convertDecimalToMin(pnt) { 
+	        /* 
+	                Input:        GPoint Or GLatLng 
+	                Output: String with Latitude & Longitude in Degree Minute Second 
+							Compass format 
+	        */ 
+	        var lat = pnt.lat(); 
+	        var lng = pnt.lng(); 
+	        var dirLat; 
+	        var dirLng; 
+	        if (lat > 0) { 
+	                dirLat = "N"; 
+	        } 
+	        else { 
+	                dirLat = "S"; 
+	                lat = lat * -1; 
+	        } 
+	        if (lng > 0) { 
+	                dirLng = "E"; 
+	        } 
+	        else { 
+	                dirLng = "W"; 
+	                lng = lng * -1; 
+	        } 
+	
+	        var degLat = Math.floor( lat );                        // use 
+	        var degLng = Math.floor( lng );                        // use 
+	        var decLat = lat - degLat; 
+	        var decLng = lng - degLng; 
+	        var dmnLat = 60 * decLat; 
+	        var dmnLng = 60 * decLng; 
+	        var minLat = parseInt(dmnLat);                // use 
+	        var minLng = parseInt(dmnLng);                // use 
+	        var dscLat = dmnLat - minLat; 
+	        var dscLng = dmnLng - minLng; 
+	        var secLat = parseInt(60 * dscLat);        // use 
+	        var secLng = parseInt(60 * dscLng);        // use 
+	        var sDeg = "Lat: " + pad(degLat,2) + "&#176; " + pad(minLat,2) + "' " + pad(secLat,2) 
+						+ "\" " + dirLat + "<br /> Lng: " + pad(degLng,3) + "&#176; " + pad(minLng,2) + "' " 
+						+ pad(secLng,2) + "\" " + dirLng; 
+	        return sDeg; 
+		}
+		
+		function pad(number, length) {
+   
+		    var str = '' + number;
+		    while (str.length < length) {
+		        str = '0' + str;
+		    }
+   
+    		return str;
+		}
