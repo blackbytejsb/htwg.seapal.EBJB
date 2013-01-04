@@ -30,8 +30,10 @@
 
 </script>
 <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWYUiW056ymDJsYLP_Qm4sf1zuMJ5fsc&sensor=false">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWYUiW056ymDJsYLP_Qm4sf1zuMJ5fsc&sensor=false&v=3">
    </script>
+
+<script type="text/javascript" src="https://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.11/src/infobox.js"></script>
 <script type="text/javascript" src="maps.js"></script>
 
 <style type="text/css"></style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
