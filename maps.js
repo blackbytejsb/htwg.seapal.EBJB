@@ -3,10 +3,10 @@
 	var map;
     
     var curmarker;
-	var markerFrom = null;
+	var latLngFrom = null;
     var markerTarget = null;
     
-    var markers = [];
+    var routemarkers = [];
     var infos = [];
       
     var closedInfo = false;
@@ -15,13 +15,19 @@
     var boxText = document.createElement("div");
 	boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: white; padding: 5px;";
 	
-    
+    var routePoints = [];
+	var route = new google.maps.Polyline({
+	    path: routePoints,
+	    strokeColor: "#FF0000",
+	    strokeOpacity: 1.0,
+	    strokeWeight: 2
+	});
 
 	var contentString = '<div id="content"><ul>'+
-    '<li><button onclick="thefunction(curmarker)">Markierung setzen </button></li>'+
-    '<li><button onclick="thefunction(curmarker)">Route setzen </button></li>'+
+    '<li><button onclick="addMarker(curmarker.getPosition())">Markierung setzen </button></li>'+
+    '<li><button onclick="addRoute()">Route setzen </button></li>'+
     '<li><button onclick="distanceFrom()">Abstand von hier</button></li>'+
-    '<li><button onclick="distance(markerFrom,curmarker)">Abstand nach hier</button></li>'+
+    '<li><button onclick="distance(latLngFrom,curmarker)">Abstand nach hier</button></li>'+
     '<li><button onclick="markasTarget(curmarker)">Zum Ziel machen </button></li>'+ 
     '<li><button onclick="deleteMarker()">Löschen</button></li>'+
     '<span id="distance"></span></ul></div>';
@@ -73,30 +79,7 @@
         // Adding a Marker 
         
         google.maps.event.addListener(map, 'click', function(event) {
-            var markerOptions= {
-	            position: event.latLng,
-                map: map,
-                draggable:true,
-                visible: true
-            }
-            
-            if (closedInfo == false)
-            {
-            	var marker = new google.maps.Marker(markerOptions);
-	        	markers.push(marker);
-	        	
-				var infowindow = new google.maps.InfoWindow;
-	
-				bindInfoW(marker,contentString,infowindow);
-				
-				if (markerTarget == null)
-				{
-					markasTarget(marker);
-				}
-				
-            } else {
-            	closedInfo = false;
-            }
+            addMarker(event.latLng);
         })
         }
         // Infowindow Management for multiple infowindows
@@ -109,11 +92,10 @@
             	infowindow.setContent(contentString);
             	infowindow.open(map, marker);
             	
-       
             	infos[0]=infowindow;
-            	
-            	
         	});
+        	
+        	
 		}
 		
 		// Add InfoBox to Marker
@@ -121,8 +103,6 @@
 		function showInfoBox(marker)
 		{
 			if (ib == null) {
-				
-		                
 		        var myOptions = {
 		                 content: boxText
 		                ,disableAutoPan: false
@@ -164,16 +144,15 @@
 		}
 		
 		// Distance calculation  
-        function distance(fromMarker,toMarker)
+        function distance(fromPosition,toMarker)
         {
-        	if (fromMarker != null) {
+        	if (fromPosition != null) {
         		// Route anzeigen und distanz ausrechnen + anzeigen
-	        	var latLngA = fromMarker.getPosition();
-	        	var latLngB = toMarker.getPosition();
+	        	var toPosition = toMarker.getPosition();
 	        	
 	        	
 	        	//distance = distHaversine(fromMarker,toMarker);
-	        	var distance = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
+	        	var distance = google.maps.geometry.spherical.computeDistanceBetween (fromPosition, toPosition);
 			
 	        	document.getElementById('distance').innerHTML = "<li>Distance: " + distance.toFixed(2) + "m</li>";
 
@@ -188,7 +167,7 @@
         
         function distanceFrom()
         {
-        	markerFrom = curmarker;
+        	latLngFrom = curmarker.getPosition();
         }
         
         
@@ -198,6 +177,7 @@
         		markerTarget.setIcon(null);
         		markerTarget.setOptions({raiseOnDrag: true});
 				google.maps.event.clearListeners(marker, 'drag');
+				markerTarget.metadata = {isTarget: false};
 
         	};
         	
@@ -212,16 +192,10 @@
         	markerTarget = marker;
         	markerTarget.setOptions({raiseOnDrag: false});
         	
-			marker.setIcon('targetmarker.png');
+			markerTarget.setIcon('targetmarker.png');
+			markerTarget.set("isTarget", true);
+
 			
-			google.maps.event.addListener(marker, 'drag', function() {
-				var myLatLng = marker.getPosition();
-				var lat = myLatLng.lat();
-				var lng = myLatLng.lng();
-				
-	        	document.getElementById("lat1").firstChild.nodeValue=lat;
-	        	document.getElementById("long1").firstChild.nodeValue=lng;
-        	})
         }
         
         function deleteMarker()
@@ -230,22 +204,83 @@
         	closeInfos();
 			
         	curmarker.setMap(null);
-        	delete markers[markers.indexOf(curmarker)];
+        	
+        	if(markers.indexOf(curmarker) != -1)
+        	{
+        		delete markers[markers.indexOf(curmarker)];
+        		delete routePoints[markers.indexOf(curmarker)];
+				route.setMap(map);
+        	};
         }
        
-        /*
-          var routePoints = [
-            new google.maps.LatLng(47.66, 9.16),
-            new google.maps.LatLng(47.67, 9.17),
-            new google.maps.LatLng(47.69, 9.14),
-          ];
-          var route = new google.maps.Polyline({
-            path: routePoints,
-            strokeColor: "#FF0000",
-            strokeOpacity: 1.0,
-            strokeWeight: 2
-          });
+        // Routes
+        function addRoute()
+        {
+        	
+			document.getElementById('distance').innerHTML = "<li>Bla</li>";
 
-        route.setMap(map);
-        */
+        	routePoints.push(curmarker.getPosition());
+        	routemarkers.push(curmarker);
+        	route.setOptions({path: routePoints});
+        	route.setMap(map);
+			curmarker.set("isRoute", true);
+
+        }
+        
+
+		
+		
+        function addMarker(position)
+        {
+        	var markerOptions= {
+	            position: position,
+                map: map,
+                draggable:true,
+                visible: true
+            }
+            
+            if (closedInfo == false)
+            {
+            	var marker = new google.maps.Marker(markerOptions);
+	        	
+				var infowindow = new google.maps.InfoWindow;
+	
+				bindInfoW(marker,contentString,infowindow);
+				
+				if (markerTarget == null)
+				{
+					markasTarget(marker);
+				}
+				
+				// Drag of Marker, if TargetMarker then update lat/long, if routemarker, update routes
+				google.maps.event.addListener(marker, 'drag', function() {
+        		
+        			var myLatLng = marker.getPosition();
+					var lat = myLatLng.lat();
+					var lng = myLatLng.lng();
+					
+	        		if(marker.get("isTarget"))
+	        		{
+			        	document.getElementById("lat1").firstChild.nodeValue=lat;
+			        	document.getElementById("long1").firstChild.nodeValue=lng;
+	        		}
+	        		
+					
+	        		if(marker.get("isRoute"))
+	        		{
+	        			
+	        			routePoints[routemarkers.indexOf(marker)] = myLatLng;
+	        			 
+						route.setOptions({path: routePoints});
+
+	        			route.setMap(map);
+
+	        		}
+					
+        		})
+				
+            } else {
+            	closedInfo = false;
+            }
+        }
       
