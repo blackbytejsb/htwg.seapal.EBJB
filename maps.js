@@ -7,20 +7,23 @@
     var markerTarget;
     
     var markers = [];
+    var infos = [];
       
-    var contentString = '<div id="content"><ul>'+
-    '<li><input type="submit" name="next" id="next" value="Markierung setzen" onclick="javascript:thefunction(curmarker)"></li>'+
-    '<li><input type="submit" name="next" id="route" value="Route setzen" onclick="javascript:thefunction(curmarker)"></li>'+
-    '<li><input type="submit" name="next" id="distance" value="Abstand von hier" onclick="javascript:thefunction(curmarker)"></li>'+
-    '<li><input type="submit" name="next" id="target" value="Zum Ziel machen" onclick="javascript:thefunction(curmarker)"></li>'+ 
-    '<li><input type="submit" name="next" id="delete" value="Löschen" onclick="javascript:deleteMarker(curmarker,this)">'+
-    '</ul></div>';
-    						
-    var infowindow = new google.maps.InfoWindow({
-    	content: contentString
-	});
+    var closedInfo = false;
+      
+    
+
       
       function initialize() {
+      	
+      	var contentString = '<div id="content"><ul>'+
+    '<li><button onclick="thefunction(curmarker)">Markierung setzen </button></li>'+
+    '<li><button onclick="thefunction(curmarker)">Route setzen </button></li>'+
+    '<li><button onclick="thefunction(curmarker)">Abstand von hier </button></li>'+
+    '<li><button onclick="thefunction(curmarker)">Zum Ziel machen </button></li>'+ 
+    '<li><button onclick="deleteMarker()">Löschen</button></li>'+
+    '</ul></div>';
+      	
         var mapTypeIds = ["roadmap", "satellite", "OSM"];
         var mapOptions = {
           center: new google.maps.LatLng(47.66, 9.16),
@@ -55,23 +58,56 @@
         })
         
         google.maps.event.addListener(map, 'click', function(event) {
-             var markerOptions= {
-	             position: event.latLng,
-                 map: map,
-                 draggable:true
-             }
-        	 marker = new google.maps.Marker(markerOptions);
-        	 markers.push(marker);
-
-        	 google.maps.event.addListener(marker, 'click', function() {
-        	 		curmarker = marker;
-				    infowindow.open(map, marker);
-				
-			})
+            var markerOptions= {
+	            position: event.latLng,
+                map: map,
+                draggable:true
+            }
+            
+            if (closedInfo == false)
+            {
+            	var marker = new google.maps.Marker(markerOptions);
+	        	markers.push(marker);
+	        	
+				var infowindow = new google.maps.InfoWindow;
+	
+				bindInfoW(marker,contentString,infowindow);
+            } else {
+            	closedInfo = false;
+            }
+        	
+        	
         })
-        
-        
-        
+        }
+        // Infowindow Management for multiple infowindows
+        function bindInfoW(marker, contentString, infowindow)
+		{
+        	google.maps.event.addListener(marker, 'click', function() {
+        		closeInfos();
+        		
+        	 	curmarker = marker;
+            	infowindow.setContent(contentString);
+            	infowindow.open(map, marker);
+            	
+            	infos[0]=infowindow;
+        	});
+		}
+
+		function closeInfos(){
+	  		if(infos.length > 0){
+	 
+	      		/* detach the info-window from the marker */
+	      		infos[0].set("marker",null);
+	 
+	      		/* and close it */
+	      		infos[0].close();
+	 
+	      		/* blank the array */
+	      		infos.length = 0;
+	   		}
+		}
+		
+		// Distance calculation  
         function distance(fromMarker,toMarker)
         {
         	// Route anzeigen und distanz ausrechnen + anzeigen
@@ -91,11 +127,15 @@
         	
         }
         
-        function deleteMarker(marker, sender)
+        function deleteMarker()
         {
-        	marker.setMap(null);
-        	delete markers[markers.indexOf(marker)];
+			closedInfo = true;
+        	closeInfos();
+			
+        	curmarker.setMap(null);
+        	delete markers[markers.indexOf(curmarker)];
         }
+       
        
         
         /*
@@ -113,4 +153,4 @@
 
         route.setMap(map);
         */
-      }
+      
