@@ -176,8 +176,7 @@
         	if (markerTarget != null) {
         		markerTarget.setIcon(null);
         		markerTarget.setOptions({raiseOnDrag: true});
-				google.maps.event.clearListeners(marker, 'drag');
-				markerTarget.metadata = {isTarget: false};
+				markerTarget.set("isTarget", false);
 
         	};
         	
