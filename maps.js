@@ -109,12 +109,12 @@
 		                 content: boxText
 		                ,disableAutoPan: false
 		                ,maxWidth: 0
-		                ,pixelOffset: new google.maps.Size(-140, 0)
+		                ,pixelOffset: new google.maps.Size(-75, 0)
 		                ,zIndex: null
 		                ,boxStyle: { 
 		                  background: "url('tipbox.gif') no-repeat"
 		                  ,opacity: 0.75
-		                  ,width: "280px"
+		                  ,width: "150px"
 		                 }
 		                ,infoBoxClearance: new google.maps.Size(1, 1)
 		                ,isHidden: false
@@ -186,7 +186,7 @@
 			var lat = myLatLng.lat();
 			var lng = myLatLng.lng();
 
-			boxText.innerHTML = '<span id="position">'+convertDecimalToMin(myLatLng)+'</span>';
+			boxText.innerHTML = '<span id="position" >'+convertDecimalToMin(myLatLng)+'</span>';
 			
         	showInfoBox(marker);
 
@@ -322,7 +322,7 @@
 	        var secLat = parseInt(60 * dscLat);        // use 
 	        var secLng = parseInt(60 * dscLng);        // use 
 	        var sDeg = "Lat: " + pad(degLat,2) + "&#176; " + pad(minLat,2) + "' " + pad(secLat,2) 
-						+ "\" " + dirLat + "<br /> Lng: " + pad(degLng,3) + "&#176; " + pad(minLng,2) + "' " 
+						+ "\" " + dirLat + " Lng: " + pad(degLng,3) + "&#176; " + pad(minLng,2) + "' " 
 						+ pad(secLng,2) + "\" " + dirLng; 
 	        return sDeg; 
 		}
