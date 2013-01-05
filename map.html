@@ -10,10 +10,63 @@
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWYUiW056ymDJsYLP_Qm4sf1zuMJ5fsc&sensor=false&v=3&libraries=geometry">
     </script>
-
+	
     <script type="text/javascript" src="https://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.11/src/infobox.js"></script>
 
     <script type="text/javascript" src="maps.js"></script>
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
+
+	<script src="websocket/fancywebsocket.js"></script>
+
+	<script type="text/javascript">
+		var Server;
+		var tracking;
+	
+		$(function() { 
+			tracking = true;
+			
+			Server = new FancyWebSocket('ws://127.0.0.1:9300');
+			// watch textarea for release of key press
+			
+			//Log any messages sent from server! 
+			Server.bind('message', function( data ) {
+				updateChat( message );
+			});
+
+			//Let the user know we're connected
+			Server.bind('open', function( data ) {
+				alert("Connected to Alpha Centauri, you can now see an alien from another world on the map.");
+			});		
+			
+			//OH NO! Disconnection occurred.
+			Server.bind('close', function( data ) {
+				alert("Server has crashed on alpha centauri.");
+			});
+				
+			Server.connect();
+			
+		});
+		
+		
+		
+		function toggleTracking()
+		{
+			tracking = !tracking;
+		}
+		
+		function addBoatToMap( data )
+		{
+			
+		}
+		
+		function updateBoatPosition( data ) {
+			$('#chat-area').append($("<p>"+ message +"</p>"));
+			document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;
+		}
+				
+	</script>
+
 
   </head>
   <body onload="initialize()">
