@@ -28,7 +28,7 @@
     '<li><button onclick="addRoute()">Route setzen </button></li>'+
     '<li><button onclick="distanceFrom()">Abstand von hier</button></li>'+
     '<li><button onclick="distance(latLngFrom,curmarker)">Abstand nach hier</button></li>'+
-    '<li><button onclick="markasTarget(curmarker)">Zum Ziel machen </button></li>'+ 
+    '<li><button onclick="javascript:markasTarget(curmarker)">Zum Ziel machen </button></li>'+ 
     '<li><button onclick="deleteMarker()">Löschen</button></li>'+
     '<span id="distance"></span></ul></div>';
 
@@ -218,7 +218,7 @@
         function addRoute()
         {
         	
-			document.getElementById('distance').innerHTML = "<li>Bla</li>";
+			document.getElementById('distance').innerHTML = "<li>Route added.</li>";
 
         	routePoints.push(curmarker.getPosition());
         	routemarkers.push(curmarker);

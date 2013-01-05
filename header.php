@@ -30,12 +30,13 @@
 
 </script>
 <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWYUiW056ymDJsYLP_Qm4sf1zuMJ5fsc&sensor=false&v=3">
-   </script>
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWYUiW056ymDJsYLP_Qm4sf1zuMJ5fsc&sensor=false&v=3&libraries=geometry">
+    </script>
 
-<script type="text/javascript" src="https://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.11/src/infobox.js"></script>
-<script type="text/javascript" src="maps.js"></script>
+    <script type="text/javascript" src="https://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.11/src/infobox.js"></script>
 
+    <script type="text/javascript" src="maps.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
 <style type="text/css"></style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
 .fb_invisible{display:none}
 .fb_reset{background:none;border-spacing:0;border:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
