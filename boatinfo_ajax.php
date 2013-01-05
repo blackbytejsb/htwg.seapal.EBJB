@@ -38,69 +38,69 @@
 					  <table width="100%" border="0" cellspacing="2" cellpadding="2">
 				        <tr>
 				          <td width="17%">Bootsname</td>
-				          <td width="17%"><input type="text" name="boatname" id="boatname" onblur="isNameOk(this, document.getElementById('boatname_help'))">
+				          <td width="17%"><input type="text" name="Boatname" id="Boatname" onblur="isNameOk(this, document.getElementById('boatname_help'))">
 				          			     
 				          </td>
 				          <td width="17%">Typ</td>
-				          <td width="17%"><input type="text" name="boattype" id="boattype"></td>
+				          <td width="17%"><input type="text" name="Boattype" id="Boattype"></td>
 				          <td width="17%">Baujahr</td>
-				          <td width="17%"><input type="text" name="manufactureyear" id="manufactureyear" onblur="isYearOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="Manufactureyear" id="Manufactureyear" onblur="isYearOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Registernr.</td>
-				          <td width="17%"><input type="text" name="registernr" id="registernr" onblur="isTheFieldEmpty(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="registernr" id="Registernr" onblur="isTheFieldEmpty(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Konstrukteur</td>
-				          <td width="17%"><input type="text" name="manufacturer" id="manufacturer" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="manufacturer" id="Manufacturer" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Motor</td>
-				          <td width="17%"><input type="text" name="motortype" id="motortype" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="motortype" id="Motortype" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Segelzeichen</td>
-				          <td width="17%"><input type="text" name="sailemblem" id="sailemblem" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="sailemblem" id="Sailemblem" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Länge (m)</td>
-				          <td width="17%"><input type="text" name="length" id="length" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="length" id="Length" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Tankgröße (l)</td>
-				          <td width="17%"><input type="text" name="tanksize" id="tanksize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="tanksize" id="Tanksize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Heimathafen</td>
-				          <td width="17%"><input type="text" name="homeport" id="homeport" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="homeport" id="Homeport" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Breite (m)</td>
-				          <td width="17%"><input type="text" name="width" id="width" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="width" id="Width" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Wassertankgröße (l)</td>
-				          <td width="17%"><input type="text" name="watertanksize" id="watertanksize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="watertanksize" id="Watertanksize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Yachtclub</td>
-				          <td width="17%"><input type="text" name="yachtclub" id="yachtclub" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="yachtclub" id="Yachtclub" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Tiefgang</td>
 				          <td width="17%"><input type="text" name="draft" id="draft" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Abwassertankgröße (l)</td>
-				          <td width="17%"><input type="text" name="effluenttanksize" id="effluenttanksize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="effluenttanksize" id="Effluenttanksize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Eigner</td>
-				          <td width="17%"><input type="text" name="owner" id="owner" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="owner" id="Owner" onblur="isNameOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Masthöhe (m)</td>
-				          <td width="17%"><input type="text" name="mastheight" id="mastheight" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="mastheight" id="Mastheight" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Großsegelgröße (m)</td>
-				          <td width="17%"><input type="text" name="mainsailsize" id="mainsailsize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="mainsailsize" id="Mainsailsize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Versicherung</td>
-				          <td width="17%"><input type="text" name="insurance" id="insurance" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="insurance" id="Insurance" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Verdrängung</td>
-				          <td width="17%"><input type="text" name="repression" id="repression" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="repression" id="Repression" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Genaugröße (m)</td>
-				          <td width="17%"><input type="text" name="genuasize" id="genuasize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="genuasize" id="Genuasize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>
 				          <td width="17%">Rufzeichen</td>
-				          <td width="17%"><input type="text" name="callsign" id="callsign" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="callsign" id="Callsign" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Rig-Art</td>
-				          <td width="17%"><input type="text" name="rigtype" id="rigtype" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="rigtype" id="Rigtype" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Spigröße (m)</td>
-				          <td width="17%"><input type="text" name="spisize" id="spisize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="spisize" id="Spisize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 			          </table>
 				  
@@ -135,7 +135,7 @@
 
 					  <tr>
 					    <td colspan="3"><input type="submit" name="delete" id="delete" value="Löschen">
-				        <input type="submit" name="save" id="save" value="Speichern">
+				        <!-- <input type="submit" name="save" id="save" value="Speichern"> <!-- Removed Send button -->
 				        <input type="submit" name="latest" id="latest" value="Neuester"></td>
 					    <td colspan="2"><input type="submit" name="previous" id="previous" value="Vorheriger">
 				        <input type="submit" name="next" id="next" value="Nächster"></td>

@@ -33,7 +33,7 @@
 
 			while($row = mysql_fetch_array($select))
 			{
-				$result = "<tr>"."<td>" . $row['Boatname'] . "</td>
+				$result = "<tr name='".$_POST['Registernr']."'>"."<td>" . $row['Boatname'] . "</td>
 						  <td>" . $row['Type'] . "</td>
 						  <td>" . $row['Manufacturer'] . "</td>
 						  <td>" . $row['Length'] . " m </td>
@@ -41,7 +41,7 @@
 			}
 		break;
 		case('getid'): 
-			$select = mysql_query("SELECT * FROM Boat WHERE Registernr = ".$_POST['key']);
+			$select = mysql_query("SELECT * FROM Boat WHERE Registernr = ".$_POST['rowid']);
 
 			while($row = mysql_fetch_array($select))
 			{
@@ -51,37 +51,37 @@
 		case('send'):
 			$sql = "INSERT INTO Boat
 			VALUES
-			('$_POST[boatname]',
-			 '$_POST[registernr]',
-			 '$_POST[sailemblem]',
-			 '$_POST[homeport]',
-			 '$_POST[yachtclub]',
-			 '$_POST[owner]',
-			 '$_POST[insurance]',
-			 '$_POST[callsign]',
-			 '$_POST[boattype]',
-			 '$_POST[manufacturer]',
-			 '$_POST[length]',
-			 '$_POST[width]',
-			 '$_POST[draft]',
-			 '$_POST[mastheight]',
-			 '$_POST[repression]',
-			 '$_POST[rigtype]',
-			 '$_POST[manufactureyear]',
-			 '$_POST[motortype]',
-			 '$_POST[tanksize]',
-			 '$_POST[watertanksize]',
-			 '$_POST[effluenttanksize]',
-			 '$_POST[mainsailsize]',
-			 '$_POST[genuasize]',
-			 '$_POST[spisize]'
+			('$_POST[Boatname]',
+			 '$_POST[Registernr]',
+			 '$_POST[Sailemblem]',
+			 '$_POST[Homeport]',
+			 '$_POST[Yachtclub]',
+			 '$_POST[Owner]',
+			 '$_POST[Insurance]',
+			 '$_POST[Callsign]',
+			 '$_POST[Boattype]',
+			 '$_POST[Manufacturer]',
+			 '$_POST[Length]',
+			 '$_POST[Width]',
+			 '$_POST[Draft]',
+			 '$_POST[Mastheight]',
+			 '$_POST[Repression]',
+			 '$_POST[Rigtype]',
+			 '$_POST[Manufactureyear]',
+			 '$_POST[Motortype]',
+			 '$_POST[Tanksize]',
+			 '$_POST[Watertanksize]',
+			 '$_POST[Effluenttanksize]',
+			 '$_POST[Mainsailsize]',
+			 '$_POST[Genuasize]',
+			 '$_POST[Spisize]'
 			)";
 			
-			$result = "<tr>"."<td>" . $_POST[boatname] . "</td>
-						  <td>" . $_POST[boattype] . "</td>
-						  <td>" . $_POST[manufacturer] . "</td>
-						  <td>" . $_POST[length] . " m </td>
-						  <td>" . $_POST[owner] . "</td>"."</tr>";
+			$result = "<tr name='".$_POST[Registernr]."'>"."<td>" . $_POST[Boatname] . "</td>
+						  <td>" . $_POST[Boattype] . "</td>
+						  <td>" . $_POST[Manufacturer] . "</td>
+						  <td>" . $_POST[Length] . " m </td>
+						  <td>" . $_POST[Owner] . "</td>"."</tr>";
 		break;
 	}
   	

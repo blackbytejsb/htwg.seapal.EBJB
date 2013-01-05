@@ -23,7 +23,7 @@ $(function() {
 	$('#datatable tr').click(  
 	  function() {
 		
-		var key = $(this).attr("name");
+		var rowid = $(this).attr("name");
 		
 	
 		$.ajax({
@@ -31,12 +31,19 @@ $(function() {
 			url: "insertboat_ajax.php",
 			data: {
 					'action': 'getid',
-					'key' : key,
+					'rowid' : rowid,
 			},
 			dataType: "json",
 			success: function(data){
-				alert(data);
+				
+				var fieldvalues = [];
 
+				$.each(data, function(key, value){
+					var elID = '#'+key;
+				    $(elID).val(value);
+
+				});
+				
 		},
 	});
 });
