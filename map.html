@@ -22,6 +22,7 @@
 	<script type="text/javascript">
 		var Server;
 		var tracking;
+		var boat;
 	
 		$(function() { 
 			tracking = true;
@@ -31,17 +32,29 @@
 			
 			//Log any messages sent from server! 
 			Server.bind('message', function( data ) {
-				updateChat( message );
+				alert(data);
+				if(tracking)
+				{
+					
+					var latlng = new google.maps.LatLng(data.get("lat"), data.get("long"));
+
+					updateBoatPosition(latlng);
+				}
+				
 			});
 
 			//Let the user know we're connected
 			Server.bind('open', function( data ) {
 				alert("Connected to Alpha Centauri, you can now see an alien from another world on the map.");
+							
+				alert(data);
+
+				addBoatToMap(data);
 			});		
 			
 			//OH NO! Disconnection occurred.
 			Server.bind('close', function( data ) {
-				alert("Server has crashed on alpha centauri.");
+				alert("Your frickin' head crashed on alpha centauri.");
 			});
 				
 			Server.connect();
@@ -57,12 +70,22 @@
 		
 		function addBoatToMap( data )
 		{
-			
+
+			document.getElementById("mapcenter").innerHTML=convertDecimalToMin(position);
+
+			var latlng = new google.maps.LatLng(data.get("lat"), data.get("long"));
+			boat = addMarker(latlng);
+			map.setCenter(latlng);
+
 		}
 		
-		function updateBoatPosition( data ) {
-			$('#chat-area').append($("<p>"+ message +"</p>"));
-			document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;
+		function updateBoatPosition( position ) {
+			alert(data);
+
+			document.getElementById("mapcenter").innerHTML=convertDecimalToMin(position);
+
+			map.setCenter(position);
+			boat.setPosition(position)
 		}
 				
 	</script>

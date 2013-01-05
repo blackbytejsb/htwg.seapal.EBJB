@@ -201,17 +201,26 @@
         
         function deleteMarker()
         {
+        	
+        	if(curmarker.get("isRoute"))
+    		{
+
+        		delete routePoints[routemarkers.indexOf(curmarker)];
+    			delete routemarkers[routemarkers.indexOf(curmarker)];
+        		
+        		route.setOptions({path: routePoints});
+        		
+				route.setMap(map);
+    		    
+    		}
+    		
 			closedInfo = true;
         	closeInfos();
 			
         	curmarker.setMap(null);
         	
-        	if(markers.indexOf(curmarker) != -1)
-        	{
-        		delete markers[markers.indexOf(curmarker)];
-        		delete routePoints[markers.indexOf(curmarker)];
-				route.setMap(map);
-        	};
+        	
+        	
         }
        
         // Routes
@@ -273,7 +282,9 @@
 
 	        		}
 					
-        		})
+        		});
+        	
+				return marker;
 				
             } else {
             	closedInfo = false;
