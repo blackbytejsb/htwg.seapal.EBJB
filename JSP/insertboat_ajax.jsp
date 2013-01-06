@@ -1,5 +1,43 @@
+<%@ page import="java.io.*,java.util.*,java.net.*,java.sql.*" %>
 
+<%
+				      	Connection con = null;
+						String url = "jdbc:mysql://localhost:8080/";
+						String db = "seapal";
+						String driver = "com.mysql.jdbc.Driver";
+						String userName ="root";
+						String password="";
 
+						int sumcount=0;
+						Statement st;
+						try{
+							Class.forName(driver).newInstance();
+							con = DriverManager.getConnection(url+db,userName,password);
+							String query = "INSERT INTO Boat (Boatname,Registernr,Sailemblem,Homeport,Yachtclub,Owner,Insurance,Callsign,Boattype,Manufacturer,Length,Width,Draft,Mastheight,Repression,Rigtype,Manufactureyear,Motortype,Tanksize,Watertanksize,Effluenttanksize,Mainsailsize,Genuasize,Spisize) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+							st = con.createStatement();
+							ResultSet rs = st.executeQuery(query);
+					  %>
+					  <%
+							while(rs.next()){
+					  %>
+								<tr name='<%= rs.getString(2) %>'>
+								<td><%=rs.getString(1)%></td>
+								<td><%=rs.getString(9)%></td>
+								<td><%=rs.getString(10)%></td>
+								<td><%=rs.getString(11)%></td>
+								<td><%=rs.getString(6)%></td>
+								</tr>
+					  <%
+							}
+					  %>
+					  <%
+						}
+						catch(Exception e){
+							e.printStackTrace();
+						}
+%>
+
+<%--
 <?php
 	$con = mysql_connect("localhost","root","");
 
@@ -90,6 +128,6 @@
 	
 	echo json_encode($result);
 ?>
-
+--%>
 
 

@@ -1,6 +1,9 @@
 
 
-<?php include("header.php"); ?>
+<jsp:include page="header.jsp">
+	<jsp:param name="name" value="sos" />
+</jsp:include>
+
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
@@ -102,4 +105,6 @@
 	<!-- end #page -->
 </div>
 
-<?php include("footer.php"); ?>
+<jsp:include page="footer.jsp">
+	<jsp:param name="name" value="sos" />
+</jsp:include>

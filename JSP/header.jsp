@@ -1,7 +1,4 @@
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <!-- saved from url=(0019)http://seapal.info/ -->
@@ -13,7 +10,7 @@
 <link rel="icon" type="image/png" href="http://seapal.info/images/Icon-32.png">
 <link href="./extensions/css" rel="stylesheet" type="text/css">
 <link href="./extensions/style.css" rel="stylesheet" type="text/css" media="screen">
-<script type="text/javascript" src="validation.js"></script>
+<script type="text/javascript" src="../validation.js"></script>
 
 <!-- Google Analytics code -->
 <script src="./extensions/cb=gapi.loaded_0" async=""></script><script id="twitter-wjs" src="./extensions/widgets.js"></script><script type="text/javascript" async="" src="./extensions/plusone.js" gapi_processed="true"></script><script id="facebook-jssdk" src="./extensions/all.js"></script><script type="text/javascript" async="" src="./extensions/ga.js"></script><script type="text/javascript">
@@ -38,7 +35,7 @@
 
     <script type="text/javascript" src="https://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.11/src/infobox.js"></script>
 
-    <script type="text/javascript" src="maps.js"></script>
+    <script type="text/javascript" src="../maps.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
 <style type="text/css"></style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
 .fb_invisible{display:none}

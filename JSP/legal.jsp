@@ -1,5 +1,6 @@
-<?php include("header.php"); ?>
-
+<jsp:include page="header.jsp">
+	<jsp:param name="name" value="sos" />
+</jsp:include>
 
 <div id="header-wrapper">
 	<div id="header" class="container">
@@ -84,4 +85,6 @@ This website uses Google Analytics, a web analytics service provided by Google, 
 </div>
 
 
-<?php include("footer.php"); ?>
+<jsp:include page="footer.jsp">
+	<jsp:param name="name" value="sos" />
+</jsp:include>

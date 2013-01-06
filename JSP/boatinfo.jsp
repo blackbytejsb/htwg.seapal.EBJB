@@ -1,6 +1,8 @@
 
-<?php include("header.php"); ?>
-
+<jsp:include page="header.jsp">
+	<jsp:param name="name" value="sos" />
+</jsp:include>
+<%@ page import="java.io.*,java.util.*,java.net.*,java.sql.*" %>
 
 <div id="header-wrapper">
 	<div id="header" class="container">
@@ -112,23 +114,44 @@
 					    <td width="12%">Länge (m)</td>
 					    <td width="20%">Inhaber</td>
 				      </tr>
-				      <?php
-							$con = mysql_connect("localhost","root","");
-							mysql_select_db("seapal", $con);
+				      
+				      <%
+				      	Connection con = null;
+						String url = "jdbc:mysql://localhost:8080/";
+						String db = "seapal";
+						String driver = "com.mysql.jdbc.Driver";
+						String userName ="root";
+						String password="";
 
-							$result = mysql_query("SELECT * FROM Boat");
-
-							while($row = mysql_fetch_array($result))
-							{
-								echo "<tr>";
-							  	echo "<td>" . $row['Boatname'] . "</td>
-									  <td>" . $row['Type'] . "</td>
-									  <td>" . $row['Manufacturer'] . "</td>
-									  <td>" . $row['Length'] . " m </td>
-									  <td>" . $row['Owner'] . "</td>";
-							  	echo "</tr>";
+						int sumcount=0;
+						Statement st;
+						try{
+							Class.forName(driver).newInstance();
+							con = DriverManager.getConnection(url+db,userName,password);
+							String query = "select * from Boat";
+							st = con.createStatement();
+							ResultSet rs = st.executeQuery(query);
+					  %>
+					  <%
+							while(rs.next()){
+					  %>
+								<tr name='<%= rs.getString(2) %>'>
+								<td><%=rs.getString(1)%></td>
+								<td><%=rs.getString(9)%></td>
+								<td><%=rs.getString(10)%></td>
+								<td><%=rs.getString(11)%></td>
+								<td><%=rs.getString(6)%></td>
+								</tr>
+					  <%
 							}
-					  ?>
+					  %>
+					  <%
+						}
+						catch(Exception e){
+							e.printStackTrace();
+						}
+					  %>
+				      
 					  
 					  <tr>
 					    <td colspan="3"><input type="submit" name="delete" id="delete" value="Löschen">
@@ -150,4 +173,6 @@
 	<!-- end #page -->
 </div>
 
-<?php include("footer.php"); ?>
+<jsp:include page="footer.jsp">
+	<jsp:param name="name" value="sos" />
+</jsp:include>
