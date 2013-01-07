@@ -8,9 +8,6 @@ require 'class.PHPWebSocket.php';
 // when a client sends data to the server
 function wsOnMessage($clientID, $message, $messageLength, $binary) {
 	global $Server;
-	global $boatPosition;
-	
-	
 	$ip = long2ip( $Server->wsClients[$clientID][6] );
 
 	// check if message length is 0
@@ -19,40 +16,35 @@ function wsOnMessage($clientID, $message, $messageLength, $binary) {
 		return;
 	}
 
-	//Send the message to everyone but the person who said it
-	foreach ( $Server->wsClients as $id => $client ) {
-		if ( $id != $clientID )
-			$Server->wsSend($id, "Visitor $clientID ($ip) said: $message");
-		else 
-			$Server->wsSend($id, "You said: $message");
-	}
+	//The speaker is the only person in the room. Don't let them feel lonely.
+	if ( sizeof($Server->wsClients) == 1 )
+		$Server->wsSend($clientID, "There isn't anyone else in the room, but I'll still listen to you. --Your Trusty Server");
+	else
+		//Send the message to everyone but the person who said it
+		foreach ( $Server->wsClients as $id => $client ) {
+			if ( $id != $clientID )
+				$Server->wsSend($id, $message);
+			
+		}
 }
 
 // when a client connects
 function wsOnOpen($clientID)
 {
 	global $Server;
-	global $boatPosition;
-	
+	$ip = long2ip( $Server->wsClients[$clientID][6] );
+
 	$Server->log( "$ip ($clientID) has connected." );
 
 	//Send a join notice to everyone but the person who joined
-	if ($boatPosition == NULL) {
-		$boatPosition = array("lat" => 47.66, "long" => 9.16);
-	}
-	
-	foreach ( $Server->wsClients as $id => $client ) {
-		if ( $id == $clientID )
-				updateBoatPosition($clientID);
-	}
-	//$Server->wsSend($id, "bla");
+	foreach ( $Server->wsClients as $id => $client )
+		if ( $id != $clientID )
+			$Server->wsSend($id, "Visitor $clientID ($ip) has joined the room.");
 }
 
 // when a client closes or lost connection
 function wsOnClose($clientID, $status) {
 	global $Server;
-	global $boatPosition;
-	
 	$ip = long2ip( $Server->wsClients[$clientID][6] );
 
 	$Server->log( "$ip ($clientID) has disconnected." );
@@ -62,21 +54,6 @@ function wsOnClose($clientID, $status) {
 		$Server->wsSend($id, "Visitor $clientID ($ip) has left the room.");
 }
 
-function updateBoatPosition($clientID)
-{
-	global $Server;
-	global $boatPosition;
-	
-	$boatPosition["lat"] += 0;
-	$boatPosition["long"] += 0.0001;
-	
-	$Server->wsSend($clientID, json_encode($boatPosition));
-	
-	sleep(5);
-    updateBoatPosition($clientID);
-}
-
-
 // start the server
 $Server = new PHPWebSocket();
 $Server->bind('message', 'wsOnMessage');
@@ -85,6 +62,5 @@ $Server->bind('close', 'wsOnClose');
 // for other computers to connect, you will probably need to change this to your LAN IP or external IP,
 // alternatively use: gethostbyaddr(gethostbyname($_SERVER['SERVER_NAME']))
 $Server->wsStartServer('127.0.0.1', 9300);
-$boatPosition = NULL;
 
 ?>
