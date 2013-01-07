@@ -84,7 +84,7 @@ function sendForm()
 		data: jsondata,
 		dataType: "json",
 		success: function(data){
-			
+			alert(data);
 			$('#datatable').append($(data));
 
 		},

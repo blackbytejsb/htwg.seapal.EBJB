@@ -119,7 +119,7 @@
 				      </tr>
 				      <%
 				      	Connection con = null;
-						String url = "jdbc:mysql://localhost:8080/";
+						String url = "jdbc:mysql://localhost/";
 						String db = "seapal";
 						String driver = "com.mysql.jdbc.Driver";
 						String userName ="root";

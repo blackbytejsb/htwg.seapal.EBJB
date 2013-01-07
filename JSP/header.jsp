@@ -1,4 +1,6 @@
 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <!-- saved from url=(0019)http://seapal.info/ -->

@@ -1,40 +1,67 @@
 <%@ page import="java.io.*,java.util.*,java.net.*,java.sql.*" %>
 
 <%
-				      	Connection con = null;
-						String url = "jdbc:mysql://localhost:8080/";
-						String db = "seapal";
-						String driver = "com.mysql.jdbc.Driver";
-						String userName ="root";
-						String password="";
 
-						int sumcount=0;
-						Statement st;
-						try{
-							Class.forName(driver).newInstance();
-							con = DriverManager.getConnection(url+db,userName,password);
-							String query = "INSERT INTO Boat (Boatname,Registernr,Sailemblem,Homeport,Yachtclub,Owner,Insurance,Callsign,Boattype,Manufacturer,Length,Width,Draft,Mastheight,Repression,Rigtype,Manufactureyear,Motortype,Tanksize,Watertanksize,Effluenttanksize,Mainsailsize,Genuasize,Spisize) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-							st = con.createStatement();
-							ResultSet rs = st.executeQuery(query);
-					  %>
-					  <%
-							while(rs.next()){
-					  %>
-								<tr name='<%= rs.getString(2) %>'>
-								<td><%=rs.getString(1)%></td>
-								<td><%=rs.getString(9)%></td>
-								<td><%=rs.getString(10)%></td>
-								<td><%=rs.getString(11)%></td>
-								<td><%=rs.getString(6)%></td>
-								</tr>
-					  <%
-							}
-					  %>
-					  <%
-						}
-						catch(Exception e){
-							e.printStackTrace();
-						}
+	String boatname=request.getParameter("Boatname");
+	String registernr=request.getParameter("Registernr");
+	String sailemblem=request.getParameter("Sailemblem");
+	String homeport=request.getParameter("Homeport");
+	String yachtclub=request.getParameter("Yachtclub");
+	String owner=request.getParameter("Owner");
+	String insurance=request.getParameter("Insurance");
+	String callsign=request.getParameter("Callsign");
+	String boattype=request.getParameter("Boattype");
+	String manufacturer=request.getParameter("Manufacturer");
+	String length=request.getParameter("Length");
+	String width=request.getParameter("Width");
+	String draft=request.getParameter("Draft");
+	String mastheight=request.getParameter("Mastheight");
+	String repression=request.getParameter("Repression");
+	String rigtype=request.getParameter("Rigtype");
+	String manufactureyear=request.getParameter("Manufactureyear");
+	String motortype=request.getParameter("Motortype");
+	String tanksize=request.getParameter("Tanksize");
+	String watertanksize=request.getParameter("Watertanksize");
+	String effluenttanksize=request.getParameter("Effluenttanksize");
+	String mainsailsize=request.getParameter("Mainsailsize");
+	String genuasize=request.getParameter("Genuasize");
+	String spisize=request.getParameter("Spisize");
+
+
+  	Connection con = null;
+	String url = "jdbc:mysql://localhost/";
+	String db = "seapal";
+	String driver = "com.mysql.jdbc.Driver";
+	String userName ="root";
+	String password="";
+
+	int sumcount=0;
+	Statement st;
+	try{
+		Class.forName(driver).newInstance();
+		con = DriverManager.getConnection(url+db,userName,password);
+		String query = "INSERT INTO Boat (Boatname,Registernr,Sailemblem,Homeport,Yachtclub,Owner,Insurance,Callsign,Type,Manufacturer,Length,Width,Draft,Mastheight,Repression,Rigtype,Manufactureyear,Motortype,Tanksize,Watertanksize,Effluenttanksize,Mainsailsize,Genuasize,Spisize)"+
+		"VALUES ("+ boatname +","+ registernr +","+ sailemblem +","+ homeport +","+ yachtclub +","+ owner +","+ insurance +","+ callsign +","+ boattype +","+ manufacturer +","+ length +","+ width +","+ draft +","+ mastheight +","+ repression +","+ rigtype +","+ manufactureyear +","+ motortype +","+ tanksize +","+ watertanksize +","+ effluenttanksize +","+ mainsailsize +","+ genuasize +","+ spisize +");";
+		st = con.createStatement();
+		
+		ResultSet rs;
+		int i = st.executeUpdate(query);
+ 			 	
+ 		out.write("W000t is " + i); 
+		
+		System.out.print("<tr name='"+registernr+"'><td>" + boatname + "</td>"+
+						  "<td>" + boattype + "</td>"+
+						  "<td>" + manufacturer + "</td>"+
+						  "<td>" + length + " m </td>"+
+						  "<td>" + owner + "</td></tr>");
+    	System.out.flush();
+
+	}
+	catch(SQLException e){
+		e.printStackTrace();
+	 	out.write("Error!!!!!!" + e); 
+		System.out.print(e);
+	}
 %>
 
 <%--
