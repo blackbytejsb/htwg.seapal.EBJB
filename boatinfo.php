@@ -87,7 +87,7 @@
 			            </tr>
 				        <tr>
 				          <td width="17%">Versicherung</td>
-				          <td width="17%"><input type="text" name="insurance" id="insurance" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
+				          <td width="17%"><input type="text" name="insurance" id="insurance" onblur="isCoordOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Verdrängung</td>
 				          <td width="17%"><input type="text" name="repression" id="repression" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Genaugröße (m)</td>

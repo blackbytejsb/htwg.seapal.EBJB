@@ -51,5 +51,7 @@
 		function isEmailOk(inputField, helpId) {        // See if the input value contains any text
 			return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Enter an Email (Ex. derekbanas@newthinktank.com)");
 		}
-
+		function isCoordOk(inputField, helpId) {        // See if the input value contains any text
+			return editNodeText(/^[0-9]+N [0-9]+E$|^[0-9]+\.[0-9]+N [0-9]+?\.[0-9]+E$|^[0-9]+°[0-9]+\.[0-9]+N [0-9]+°[0-9]+\.[0-9]+E$/, inputField.value, helpId, "Enter a valid Coordinate");
+		}
 
