@@ -22,7 +22,6 @@ $(function() {
 
 	$('#datatable tr').click(  
 	  function() {
-		
 		var rowid = $(this).attr("name");
 		
 	
@@ -36,12 +35,14 @@ $(function() {
 			dataType: "json",
 			success: function(data){
 				
-				var fieldvalues = [];
+				alert(data);
 
+				
+				var fieldvalues = [];
+				
 				$.each(data, function(key, value){
 					var elID = '#'+key;
 				    $(elID).val(value);
-
 				});
 				
 		},

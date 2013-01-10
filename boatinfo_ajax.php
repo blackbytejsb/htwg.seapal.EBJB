@@ -121,7 +121,7 @@
 
 							while($row = mysql_fetch_array($result))
 							{
-								echo '<tr name='.$row['Registernr'].'>';
+								echo '<tr name="'.$row['Registernr'].'" >';
 							  	echo "<td>" . $row['Boatname'] . "</td>
 									  <td>" . $row['Type'] . "</td>
 									  <td>" . $row['Manufacturer'] . "</td>
@@ -131,7 +131,7 @@
 							}
 					  ?>
 					  
-					  <table width="100%" border="0" cellspacing="2" cellpadding="2" id="datatable">
+					  <table width="100%" border="0" cellspacing="2" cellpadding="2">
 
 					  <tr>
 					    <td colspan="3"><input type="submit" name="delete" id="delete" value="Löschen">

@@ -41,7 +41,7 @@
 			}
 		break;
 		case('getid'): 
-			$select = mysql_query("SELECT * FROM Boat WHERE Registernr = ".$_POST['rowid']);
+			$select = mysql_query("SELECT * FROM Boat WHERE Registernr = '$_POST[rowid]'");
 
 			while($row = mysql_fetch_array($select))
 			{
