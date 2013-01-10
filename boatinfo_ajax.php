@@ -91,7 +91,7 @@
 				          <td width="17%"><input type="text" name="insurance" id="Insurance" onblur="isNameOkOrEmpty(this, document.getElementById('boatname_help'))"></td>
 				          <td width="17%">Verdrängung</td>
 				          <td width="17%"><input type="text" name="repression" id="Repression" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
-				          <td width="17%">Genaugröße (m)</td>
+				          <td width="17%">Genuagröße (m)</td>
 				          <td width="17%"><input type="text" name="genuasize" id="Genuasize" onblur="isFloatOk(this, document.getElementById('boatname_help'))"></td>
 			            </tr>
 				        <tr>

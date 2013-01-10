@@ -36,7 +36,7 @@
 		
 		function isNameOkOrEmpty(inputField, helpId) {        // See if the input value contains any text
 			
-				return editNodeText(/^$|^[A-Za-z0-9\.\' \-]{5,30}$/, inputField.value, helpId, "X");
+				return editNodeText(/^$|^[A-Za-z0-9\.\'\-]{5,30}$/, inputField.value, helpId, "X");
 		}
 
 		function isStateOk(inputField, helpId) {        // See if the input value contains any text

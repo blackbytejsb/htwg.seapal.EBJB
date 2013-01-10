@@ -34,8 +34,6 @@ $(function() {
 			},
 			dataType: "json",
 			success: function(data){
-				
-				alert(data);
 
 				
 				var fieldvalues = [];

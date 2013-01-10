@@ -49,7 +49,7 @@
 			}
 		break;
 		case('send'):
-			$sql = "INSERT INTO Boat
+			$sql = "INSERT INTO Boat 
 			VALUES
 			('$_POST[Boatname]',
 			 '$_POST[Registernr]',
